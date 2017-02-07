@@ -1,42 +1,40 @@
 package counting.view;
 
 import javax.swing.JFrame;
+
 import counting.controller.CountingController;
-import counting.view.CountingPanel;
-import java.awt.Dimension;
-import javax.swing.*;
 
 public class CountingFrame extends JFrame {
-	private CountingController baseController;
-
-	private CountingPanel basePanel;
-
-	public CountingFrame(CountingController baseController) {
+	
+	private CountingController countingController;
+	
+	private CountingPanel countingPanel;
+	
+	public CountingFrame(CountingController countingController){
 		super();
-		this.baseController = baseController;
-		basePanel = new CountingPanel(this);
-
-		setupFrame();
-
+		this.countingController = countingController;
+		this.countingPanel = new CountingPanel(this);
+		
+		this.setupFrame();
 	}
-
-	private void setupFrame() {
-
-		this.setContentPane(basePanel);
-		this.setTitle("Counting Title Of Funnnnn!!!!");
-		this.setSize(new Dimension(500, 500));
-		this.setResizable(false);
-
+	
+	private void setupFrame(){
+		this.setContentPane(countingPanel);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Counting");
+		
+		this.setSize(500, 430);
+		this.setLocationRelativeTo(null);
+		
 		this.setVisible(true);
-
 	}
-
-	public CountingController getBaseController() {
-		return baseController;
+	
+	public CountingPanel getCountingPanel(){
+		return countingPanel;
 	}
-
-	public void setBaseController(CountingController baseController) {
-		this.baseController = baseController;
+	
+	public CountingController getCountingController(){
+		return countingController;
 	}
 
 }
